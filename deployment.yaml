@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-k8s-hello-world
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastapi-k8s-hello-world
+  template:
+    metadata:
+      labels:
+        app: fastapi-k8s-hello-world
+    spec:
+      containers:
+        - name: fastapi-k8s-hello-world
+          image: mohammedrizwan313/fastapi-k8s-hello-world:latest
+          ports:
+            - containerPort: 80
